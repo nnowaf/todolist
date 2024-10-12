@@ -1,0 +1,34 @@
+//DATABASE MENGGUNAKAN POSTGRESQL
+// UNTUK DATA BISA DILIHAT DI FILE
+checklist.sql untuk tabel checklists
+item.sql untuk tabel items
+user.sql untuk tabel users
+
+-- Membuat tabel users
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Membuat tabel checklists
+CREATE TABLE checklists (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Membuat tabel items
+CREATE TABLE items (
+    id SERIAL PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    completed BOOLEAN DEFAULT FALSE,
+    checklist_id INTEGER REFERENCES checklists(id) ON DELETE CASCADE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);

@@ -1,0 +1,17 @@
+server:
+  port: ${APPLICATION_PORT:8383}
+  servlet:
+    context-path: /@project.artifactId@
+# spring configuration
+spring:
+  application:
+    name: @project.artifactId@
+  datasource:
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE_NAME:todolist}
+    username: ${DATABASE_USER:nowaf}
+    password: ${DATABASE_PASSWORD:123password}
+    driver-class-name: org.postgresql.Driver
+
+jwt:
+  secret: ${JWT_SECRET:thisIsAVeryLongSecretKeyThatIsAtLeast256BitsLong}
+  expiration: ${JWT_EXPIRATION:3600000}
