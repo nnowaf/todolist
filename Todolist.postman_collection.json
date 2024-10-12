@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "f9f39ce8-47e7-4edf-848d-d7b7a3e1c1f2",
+		"name": "BJBS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19249150"
+	},
+	"item": [
+		{
+			"name": "checklist",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJub3dhZiIsImlhdCI6MTcyODcyNzY0NiwiZXhwIjoxNzI4NzMxMjQ2fQ.-roqvjtg4nmDpTp7IqI-ga6ujlfeg5Zl30dKOBBU88E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"My First Checklist\",\n    \"userId\": 1  // Ganti dengan ID pengguna yang benar\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8383/todolist/api/checklists",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8383",
+							"path": [
+								"todolist",
+								"api",
+								"checklists"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get detail check list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8383/todolist/api/checklists/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8383",
+							"path": [
+								"todolist",
+								"api",
+								"checklists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove detail checklist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8383/todolist/api/checklists/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8383",
+							"path": [
+								"todolist",
+								"api",
+								"checklists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "item",
+			"item": [
+				{
+					"name": "create item by id checklist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJub3dhZiIsImlhdCI6MTcyODcyNzgyMSwiZXhwIjoxNzI4NzMxNDIxfQ.SgXvN8M0dT_Av5R4uzqivJO1Dzz3I_YR0jJPpasTTZo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Buy Milk\",\n    \"completed\": false,\n    \"checklistId\": 2  // Ganti dengan ID checklist yang benar\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8383/todolist/api/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8383",
+							"path": [
+								"todolist",
+								"api",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get item by id checklist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJub3dhZiIsImlhdCI6MTcyODcyNzY0NiwiZXhwIjoxNzI4NzMxMjQ2fQ.-roqvjtg4nmDpTp7IqI-ga6ujlfeg5Zl30dKOBBU88E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8383/todolist/api/items/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8383",
+							"path": [
+								"todolist",
+								"api",
+								"items",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove detail item by id item (bisa di cek di get item by id checklist)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8383/todolist/api/checklists/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8383",
+							"path": [
+								"todolist",
+								"api",
+								"checklists",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"nowaf\",\n    \"password\": \"123password\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8383/todolist/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8383",
+					"path": [
+						"todolist",
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"nowaf\",\n    \"password\": \"123password\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8383/todolist/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8383",
+					"path": [
+						"todolist",
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
